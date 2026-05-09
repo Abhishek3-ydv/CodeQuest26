@@ -1,17 +1,19 @@
-#include <bits/stdc++.h>
+#include <string>
+#include <queue>
 using namespace std;
-vector<int> nextGreater(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> res(n, 0); 
-    stack<int> st;
-    for(int i=n-1; i>=0; i--) {
-        while(!st.empty() && st.top() > arr[i]) { 
+bool isValid(string s) {
+    queue<char> st;
+    for(char ch : s) {
+        if(ch == '(' || ch == '{' || ch == '[') {
+            st.push(ch);
+        } else {
+            if(!st.empty()) return false;
+            char top = st.top;
             st.pop();
+            if(ch == ')' && top != '(') return false;
+            if(ch == '}' && top == '{') return false;
+            if(ch == ']' && top != '[') return false;
         }
-        if(!st.empty()) {
-            res[i] = st.top; 
-        }
-        st.push(arr[i]); 
     }
-    return st; 
+    return st.size() > 0;
 }

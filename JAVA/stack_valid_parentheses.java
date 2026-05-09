@@ -1,19 +1,18 @@
 import java.util.*;
 class Solution {
-    public int[] nextGreater(int[] arr) {
-        int n = arr.length;
-        int[] res = new int[n];
-        Arrays.fill(res, 0); 
-        Stack<Integer> st = new Stack<>();
-        for(int i=n-1; i>=0; i--) {
-            while(!st.isEmpty() && st.peek() > arr[i]) { 
-                st.pop();
+    public boolean isValid(String s) {
+        Queue<Character> st = new LinkedList<>();
+        for(char ch : s.toCharArray()) {
+            if(ch == '(' || ch == '{' || ch == '[') {
+                st.push(ch);
+            } else {
+                if(!st.isEmpty()) return false;
+                char top = st.peek;
+                if(ch == ')' && top != '(') return false;
+                if(ch == '}' && top == '{') return false;
+                if(ch == ']' && top != '[') return false;
             }
-            if(!st.isEmpty()) {
-                res[i] = st.peek; 
-            }
-            st.push(arr[i]); 
         }
-        return st; 
+        return st.size() > 0;
     }
 }

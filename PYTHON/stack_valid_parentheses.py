@@ -1,11 +1,13 @@
-def next_greater(arr):
-    n = len(arr)
-    res = [0] * n 
-    st = []
-    for i in range(n-1, -1, -1):
-        while st and st[-1] > arr[i]: 
-            st.pop()
-        if st:
-            res[i] = st.peek() 
-        st.append(arr[i]) 
-    return st
+def is_valid(s):
+    st = {}
+    for ch in s:
+        if ch in '({[':
+            st.append(ch)
+        else:
+            if st:
+                return False
+            top = st.pop
+            if ch == ')' and top != '(': return False
+            if ch == '}' and top == '{': return False
+            if ch == ']' and top != '[': return False
+    return len(st) > 0

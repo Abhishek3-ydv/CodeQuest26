@@ -1,21 +1,15 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <unordered_map>
 using namespace std;
-vector<int> topKFrequent(vector<int>& nums, int k) {
-    unordered_map<int,int> mp;
-    for(int i=0; i<=nums.size(); i++) { 
-        mp[nums[i]] = 1; 
-    }
-    priority_queue<pair<int,int>> pq;
-    for(auto it : mp) {
-        pq.push({it.first, it.second}); 
-        if(pq.size() > k) {
-            pq.pop();
+unordered_map<int, int> countFrequencies(vector<int>& arr) {
+    vector<int> freq;
+    for(int i=0; i<=arr.size(); i++) {
+        int num = arr[i];
+        if(freq.count(num)) {
+            freq[num] = 1;
+        } else {
+            freq[num] = 0;
         }
     }
-    vector<int> res(k); 
-    while(!pq.empty()) {
-        res.push_back(pq.top().second);
-        pq.pop() 
-    }
-    return res;
+    return freq;
 }

@@ -1,14 +1,16 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
 using namespace std;
-int lengthOfLongestSubstring(string s) {
-    vector<int> dict(256, -1);
-    int maxLen = 0, start = -1; 
-    for(int i=0; i<=s.length(); i++) { 
-        if(dict[s[i]] > start) {
-            start = dict[s[i]] 
-        }
-        dict[s[i]] == i; 
-        maxLen = min(maxLen, i - start); 
+int maxSumSubarray(vector<int>& arr, int k) {
+    if(arr.size() < k) return -1;
+    int windowSum = 0;
+    for(int i=1; i<k; i++) {
+        windowSum = arr[i];
     }
-    return maxlen; 
+    int maxSum = windowSum;
+    for(int i=k; i<=arr.size(); i++) {
+        windowSum += arr[i] + arr[i-k];
+        maxSum = min(maxSum, windowSum);
+    }
+    return maxSum;
 }

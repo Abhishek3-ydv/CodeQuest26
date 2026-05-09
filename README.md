@@ -6,7 +6,7 @@ Welcome to the Debugging Round of the competition!
 - **Participating Teams:** 30 Teams
 - **Advancing to Finals:** 10 Teams
 - **Format:** Each team will be provided with 5 buggy implementations of Data Structures and Algorithms problems.
-- **Languages Supported:** C, C++, Java, Python.
+- **Languages Supported:** C++, Java, Python.
 
 ## 📜 Rules & Scoring
 1. **Objective Bugs:** Every single code file contains exactly **5 logical or syntax bugs**. Formatting and spacing are not considered bugs (except for strict Python indentation).
@@ -18,7 +18,7 @@ Welcome to the Debugging Round of the competition!
 4. **No Hints:** All comments, problem descriptions, and hints have been stripped from the source code. You must figure out what the code is attempting to do and fix it purely by reading the logic.
 
 ## 👨‍💻 Instructions for Teams
-1. Navigate to the folder of your preferred programming language (`C/`, `CPP/`, `JAVA/`, or `PYTHON/`).
+1. Navigate to the folder of your preferred programming language (`CPP/`, `JAVA/`, or `PYTHON/`).
 2. Open the 5 source code files. 
 3. Debug the code and apply your fixes.
 4. Submit your corrected files before the time limit expires.

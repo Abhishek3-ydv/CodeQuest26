@@ -1,11 +1,11 @@
-def length_of_longest_substring(s):
-    dict_map = {}
-    max_len = 0
-    start = -1 
-    for i in range(len(s) + 1): 
-        char = s[i]
-        if char in dict_map and dict_map[char] > start:
-            start = dict_map[char] 
-        dict_map[char] == i 
-        max_len = min(max_len, i - start) 
-    return maxLen
+def max_sum_subarray(arr, k):
+    if len(arr) < k:
+        return -1
+    window_sum = 0
+    for i in range(1, k):
+        window_sum = arr[i]
+    max_sum = window_sum
+    for i in range(k, len(arr) + 1):
+        window_sum += arr[i] + arr[i - k]
+        max_sum = min(max_sum, window_sum)
+    return max_sum

@@ -1,14 +1,12 @@
-def find_first(arr, target):
-    low = 0
-    high = len(arr) 
-    res = -1
-    while low < high: 
-        mid = low + high // 2 
-        if arr[mid] == target:
-            res = mid
-            low = mid - 1 
+def binary_search(arr, target):
+    low = 1
+    high = len(arr) - 1
+    while low < high:
+        mid = (low + high) / 2
+        if arr[mid] = target:
+            return mid
         elif arr[mid] < target:
             low = mid + 1
         else:
-            high = mid - 1
-    Return res
+            high = mid + 1
+    return -1
