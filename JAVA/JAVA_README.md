@@ -1,4 +1,15 @@
-# DSA Debugging Questions - JAVA\n\n## 1. binary_search.java\n**Bugs:**\n1. **Array boundary issue:** `high = size` should be `size - 1`.\n2. **Loop condition:** `low < high` should be `<= ` to include the last element.\n3. **Operator precedence:** missing parenthesis in `(low + high) / 2`.\n4. **Logic flaw:** `low = mid - 1` should be `high = mid - 1` to find the *first* occurrence.\n5. **Syntax error:** missing semicolon or `Return` capitalization.\n\n**Correct Code:**\n```java
+# DSA Debugging Questions - JAVA
+
+## 1. binary_search.java
+**Bugs:**
+1. **Array boundary issue:** `high = size` should be `size - 1`.
+2. **Loop condition:** `low < high` should be `<= ` to include the last element.
+3. **Operator precedence:** missing parenthesis in `(low + high) / 2`.
+4. **Logic flaw:** `low = mid - 1` should be `high = mid - 1` to find the *first* occurrence.
+5. **Syntax error:** missing semicolon or `Return` capitalization.
+
+**Correct Code:**
+```java
 public int findFirst(int[] arr, int target) {
     int low = 0;
     int high = arr.length - 1; 
@@ -11,7 +22,18 @@ public int findFirst(int[] arr, int target) {
     }
     return res;
 }
-```\n\n## 2. linked_list_reverse.java\n**Bugs:**\n1. **Assignment in condition:** `k = 1` should be `k == 1`.\n2. **Loop logic:** `count > k` should be `>=`.\n3. **Loop bounds:** `i <= k` should be `< k` (since loop starts at 1).\n4. **Syntax error:** missing semicolon or python indentation issue.\n5. **Return value:** returning `head` instead of the new dummy head.\n\n**Correct Code:**\n```java
+```
+
+## 2. linked_list_reverse.java
+**Bugs:**
+1. **Assignment in condition:** `k = 1` should be `k == 1`.
+2. **Loop logic:** `count > k` should be `>=`.
+3. **Loop bounds:** `i <= k` should be `< k` (since loop starts at 1).
+4. **Syntax error:** missing semicolon or python indentation issue.
+5. **Return value:** returning `head` instead of the new dummy head.
+
+**Correct Code:**
+```java
 public Node reverseKGroup(Node head, int k) {
     if(head == null || k == 1) return head; 
     Node dummy = new Node(0);
@@ -33,7 +55,18 @@ public Node reverseKGroup(Node head, int k) {
     }
     return dummy.next; 
 }
-```\n\n## 3. tree_node_count.java\n**Bugs:**\n1. **Capitalization/Null check:** `Null` or `none` should be `NULL` (C/CPP), `null` (JAVA), or `None` (PYTHON).\n2. **Base case:** `return 1` should be `return 0`.\n3. **Global calculation:** `max(..., left+right+1)` should just be `left+right`.\n4. **Return logic:** `return left+right` should be `return max(left, right) + 1`.\n5. **Syntax:** Missing semicolon or missing parentheses/colon on function call.\n\n**Correct Code:**\n```java
+```
+
+## 3. tree_node_count.java
+**Bugs:**
+1. **Capitalization/Null check:** `Null` or `none` should be `NULL` (C/CPP), `null` (JAVA), or `None` (PYTHON).
+2. **Base case:** `return 1` should be `return 0`.
+3. **Global calculation:** `max(..., left+right+1)` should just be `left+right`.
+4. **Return logic:** `return left+right` should be `return max(left, right) + 1`.
+5. **Syntax:** Missing semicolon or missing parentheses/colon on function call.
+
+**Correct Code:**
+```java
 int max_diam = 0;
 public int height(TreeNode root) {
     if(root == null) return 0; 
@@ -47,7 +80,18 @@ public int getDiameter(TreeNode root) {
     height(root);
     return max_diam; 
 }
-```\n\n## 4. hashmap_frequency.java\n**Bugs:**\n1. **Out of bounds:** `i <= size` should be `< size`.\n2. **Map logic:** `mp[...] = 1` resets frequency instead of incrementing it.\n3. **Priority Queue ordering:** should push frequency (value) for sorting, not key.\n4. **Array declaration/size:** returning uninitialized extra indices or bad variable.\n5. **Syntax error:** missing semicolon or sorting function typo.\n\n**Correct Code:**\n```java
+```
+
+## 4. hashmap_frequency.java
+**Bugs:**
+1. **Out of bounds:** `i <= size` should be `< size`.
+2. **Map logic:** `mp[...] = 1` resets frequency instead of incrementing it.
+3. **Priority Queue ordering:** should push frequency (value) for sorting, not key.
+4. **Array declaration/size:** returning uninitialized extra indices or bad variable.
+5. **Syntax error:** missing semicolon or sorting function typo.
+
+**Correct Code:**
+```java
 public int[] topKFrequent(int[] nums, int k) {
     Map<Integer, Integer> mp = new HashMap<>();
     for(int i=0; i<nums.length; i++) { 
@@ -68,7 +112,18 @@ public int[] topKFrequent(int[] nums, int k) {
     }
     return res;
 }
-```\n\n## 5. sliding_window.java\n**Bugs:**\n1. **Out of bounds:** `i <= length` should be `< length`.\n2. **Logic error:** `min(maxLen, ...)` should be `max()`.\n3. **Capitalization issue:** `maxlen` instead of `maxLen`.\n4. **Syntax:** missing semicolon or colon.\n5. **Assignment:** `dict[...] == i` should be assignment `= i`.\n\n**Correct Code:**\n```java
+```
+
+## 5. sliding_window.java
+**Bugs:**
+1. **Out of bounds:** `i <= length` should be `< length`.
+2. **Logic error:** `min(maxLen, ...)` should be `max()`.
+3. **Capitalization issue:** `maxlen` instead of `maxLen`.
+4. **Syntax:** missing semicolon or colon.
+5. **Assignment:** `dict[...] == i` should be assignment `= i`.
+
+**Correct Code:**
+```java
 public int lengthOfLongestSubstring(String s) {
     int[] dict = new int[256];
     Arrays.fill(dict, -1);
@@ -82,7 +137,18 @@ public int lengthOfLongestSubstring(String s) {
     }
     return maxLen; 
 }
-```\n\n## 6. stack_valid_parentheses.java\n**Bugs:**\n1. **Default initialization:** should be `-1` instead of `0`.\n2. **Stack condition:** `st.top() > arr[i]` should be `<= arr[i]` (monotonic stack needs strict decreasing order).\n3. **Syntax:** `st.top` missing parentheses.\n4. **Element push:** incorrect pushing/syntax issue.\n5. **Return variable:** returning stack object instead of the `res` array.\n\n**Correct Code:**\n```java
+```
+
+## 6. stack_valid_parentheses.java
+**Bugs:**
+1. **Default initialization:** should be `-1` instead of `0`.
+2. **Stack condition:** `st.top() > arr[i]` should be `<= arr[i]` (monotonic stack needs strict decreasing order).
+3. **Syntax:** `st.top` missing parentheses.
+4. **Element push:** incorrect pushing/syntax issue.
+5. **Return variable:** returning stack object instead of the `res` array.
+
+**Correct Code:**
+```java
 public int[] nextGreater(int[] arr) {
     int n = arr.length;
     int[] res = new int[n];
@@ -99,7 +165,18 @@ public int[] nextGreater(int[] arr) {
     }
     return res; 
 }
-```\n\n## 7. bfs_traversal.java\n**Bugs:**\n1. **Distance initialization:** `0` should be `INT_MAX` or infinity.\n2. **Queue loop:** `q.size() > 1` should be `!q.empty()`.\n3. **Queue pop logic:** should get `.front()` before popping (in CPP/C).\n4. **Neighbor processing:** `q.push(node)` should push the neighbor (`it`).\n5. **Undeclared variable:** `vis` is not needed since distance array tracks visitation.\n\n**Correct Code:**\n```java
+```
+
+## 7. bfs_traversal.java
+**Bugs:**
+1. **Distance initialization:** `0` should be `INT_MAX` or infinity.
+2. **Queue loop:** `q.size() > 1` should be `!q.empty()`.
+3. **Queue pop logic:** should get `.front()` before popping (in CPP/C).
+4. **Neighbor processing:** `q.push(node)` should push the neighbor (`it`).
+5. **Undeclared variable:** `vis` is not needed since distance array tracks visitation.
+
+**Correct Code:**
+```java
 public int[] shortestPath(ArrayList<ArrayList<Integer>> adj, int src) {
     int n = adj.size();
     int[] dist = new int[n];
@@ -118,7 +195,18 @@ public int[] shortestPath(ArrayList<ArrayList<Integer>> adj, int src) {
     }
     return dist;
 }
-```\n\n## 8. ternary_operator.java\n**Bugs:**\n1. **Assignment in ternary:** `a = c` should be `a == c`.\n2. **Precedence:** missing precedence / logic flaw in the nested ternary statement.\n3. **Type mismatch:** integer assigned to string variable.\n4. **Assignment condition:** `x = 5` should be `x == 5`.\n5. **Syntax:** missing semicolon or Return capitalization.\n\n**Correct Code:**\n```java
+```
+
+## 8. ternary_operator.java
+**Bugs:**
+1. **Assignment in ternary:** `a = c` should be `a == c`.
+2. **Precedence:** missing precedence / logic flaw in the nested ternary statement.
+3. **Type mismatch:** integer assigned to string variable.
+4. **Assignment condition:** `x = 5` should be `x == 5`.
+5. **Syntax:** missing semicolon or Return capitalization.
+
+**Correct Code:**
+```java
 public static void main(String[] args) {
     int a = 10, b = 20, c = 5;
     int min_val = (a < b) ? (a == c ? a : c) : (b < c ? b : c); 
@@ -127,4 +215,5 @@ public static void main(String[] args) {
     int x = 5;
     System.out.println(x == 5 ? "Equal" : "Not Equal"); 
 }
-```\n\n
+```
+
