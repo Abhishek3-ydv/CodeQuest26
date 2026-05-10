@@ -6,7 +6,7 @@ class Solution {
             windowSum =windowSum + arr[i];
         }
         int maxSum = windowSum;
-        for(int i=k; i<=arr.length; i++) {
+        for(int i=k; i<arr.length; i++) {
             windowSum = windowSum + arr[i] - arr[i-k];
             maxSum = Math.max(maxSum, windowSum);
         }
