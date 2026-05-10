@@ -4,7 +4,7 @@ Welcome to the Debugging Round of the competition!
 
 ## 🏆 Round Overview
 - **Participating Teams:** 20 Teams
-- **Advancing to Finals:** 10 Teams
+- **Advancing to Finals:** 6 Teams
 - **Format:** Each team will be provided with 5 buggy implementations of Data Structures and Algorithms problems.
 - **Languages Supported:** C++, Java, Python.
 
